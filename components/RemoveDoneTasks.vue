@@ -5,8 +5,9 @@ const store = useTaskStore()
 
 <template>
     <div v-if="store.tasksDoneCount">
-        <button @click="store.removeDoneTasks">
-            Delete Done Tasks ({{ store.tasksDoneCount }})
-        </button>
+        <v-btn @click="store.removeDoneTasks" class="ma-2" color="red">
+            Tasks Done
+            <v-icon end icon="mdi-delete"></v-icon>
+        </v-btn>
     </div>
 </template>

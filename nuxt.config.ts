@@ -1,7 +1,27 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 export default defineNuxtConfig({
+  build: {
+    transpile: ["vuetify"],
+  },
   devtools: { enabled: true },
-  modules: ["@pinia/nuxt", "@pinia-plugin-persistedstate/nuxt", "nuxt-lodash"],
+  modules: [
+    (_options, nuxt) => {
+      nuxt.hooks.hook("vite:extendConfig", (config) => {
+        // @ts-expect-error
+        config.plugins.push(vuetify({ autoImport: true }));
+      });
+    },
+    "@pinia/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
+    "nuxt-lodash",
+  ],
+  vite: {
+    vue: {
+      template: {
+        transformAssetUrls,
+      },
+    },
+  },
   pinia: {
     storesDirs: ["./stores/**"],
   },

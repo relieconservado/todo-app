@@ -27,7 +27,6 @@ export const useTaskStore = defineStore('tasks', {
             });
         },
         changeTaskStatus(index) {
-            console.log(index);
             this.tasks[index].status.done = !this.tasks[index].status.done
         },
         removeDoneTasks() {
@@ -38,6 +37,9 @@ export const useTaskStore = defineStore('tasks', {
         removeAllTasks() {
             this.tasks = [];
         },
+        removeTask(index) {
+            this.tasks.splice(index, 1)
+        }
     },
     persist: {
         storage: persistedState.localStorage,
