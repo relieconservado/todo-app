@@ -29,4 +29,7 @@ export default defineNuxtConfig({
   pinia: {
     storesDirs: ["./stores/**"],
   },
+  experimental: {
+    payloadExtraction: false,
+  },
 });
