@@ -1,5 +1,9 @@
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 export default defineNuxtConfig({
+  target: "static",
+  router: {
+    base: "/<repository-name>/",
+  },
   build: {
     transpile: ["vuetify"],
   },

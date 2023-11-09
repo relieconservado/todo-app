@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -22,6 +23,7 @@
   "dependencies": {
     "@mdi/font": "^7.3.67",
     "@pinia/nuxt": "^0.5.1",
-    "pinia": "^2.1.7"
+    "pinia": "^2.1.7",
+    "push-dir": "^0.4.1"
   }
 }
